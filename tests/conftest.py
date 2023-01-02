@@ -1,14 +1,7 @@
-import os
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
-os.environ.update({"SELENIUM_CHROMEDRIVER_PATH": "/Users/romanshcherbich/PycharmProjects/StepikSelenium/chromedriver"})
-
-STEPIK_USER = os.environ.get("STEPIK_USER")
-STEPIK_PASS = os.environ.get("STEPIK_PASS")
 
 
 def pytest_addoption(parser):
@@ -16,6 +9,8 @@ def pytest_addoption(parser):
                      help="Choose browser: chrome or firefox")
     parser.addoption("--language", action="store", default="es",
                      help="Choose testing locale: es, fr, etc")
+    parser.addoption("--selenium_chromedriver_path", action="store", default=None,
+                     help="add path to driver")
 
 
 @pytest.fixture(scope="session")
@@ -31,10 +26,15 @@ def browser(request, browser_language):
     browser = None
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
-        chrome_service = Service(os.environ.get("SELENIUM_CHROMEDRIVER_PATH"))
         options = Options()
         options.add_experimental_option("prefs", {"intl.accept_languages": browser_language})
-        browser = webdriver.Chrome(service=chrome_service, options=options)
+        chrome_service_params = {
+            "options": options
+        }
+        selenium_chromedriver_path = request.config.getoption("selenium_chromedriver_path")
+        if selenium_chromedriver_path:
+            chrome_service_params.update(service=Service(request.config.getoption("language")))
+        browser = webdriver.Chrome(**chrome_service_params)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         fp = webdriver.FirefoxProfile()
