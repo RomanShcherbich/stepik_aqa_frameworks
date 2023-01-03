@@ -1,6 +1,6 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 
-from locators import GoodPageLocators
+from pages.locators import GoodPageLocators
 from pages.base_page import BasePage
 
 

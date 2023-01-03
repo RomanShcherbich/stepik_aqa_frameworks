@@ -1,6 +1,6 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 
-from locators import BasketPageLocators
+from pages.locators import BasketPageLocators
 from pages.base_page import BasePage
 
 
