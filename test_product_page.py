@@ -2,7 +2,7 @@ import time
 
 import pytest
 
-from pages.locators import GoodPageLocators
+from pages.locators import ProductPageLocators
 from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 from pages.product_page import ProductPage
@@ -45,7 +45,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     shellcoder_s_handbook_page = ProductPage(browser, SHELLCODER_S_HANDBOOK_URL)
     shellcoder_s_handbook_page.open()
     shellcoder_s_handbook_page.add_to_basket()
-    assert shellcoder_s_handbook_page.is_not_element_present(*GoodPageLocators.SUCCESS_MESSAGE)
+    assert shellcoder_s_handbook_page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
 
 
 @pytest.mark.xfail
@@ -53,7 +53,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     shellcoder_s_handbook_page = ProductPage(browser, SHELLCODER_S_HANDBOOK_URL)
     shellcoder_s_handbook_page.open()
     shellcoder_s_handbook_page.add_to_basket()
-    assert shellcoder_s_handbook_page.is_disappeared(*GoodPageLocators.SUCCESS_MESSAGE)
+    assert shellcoder_s_handbook_page.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
 
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser):
@@ -84,4 +84,4 @@ class TestUserAddToBasketFromProductPage:
     def test_user_cant_see_success_message(self, browser):
         shellcoder_s_handbook_page = ProductPage(browser, SHELLCODER_S_HANDBOOK_URL)
         shellcoder_s_handbook_page.open()
-        assert shellcoder_s_handbook_page.is_not_element_present(*GoodPageLocators.SUCCESS_MESSAGE)
+        assert shellcoder_s_handbook_page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)

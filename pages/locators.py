@@ -7,10 +7,6 @@ class BasePageLocators:
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
-class MainPageLocators:
-    pass
-
-
 class BasketPageLocators:
     EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner > p")
     ITEMS_LIST = (By.CSS_SELECTOR, "#content_inner .basket-items > .row")
@@ -25,7 +21,7 @@ class LoginPageLocators:
     REGISTRATION_SUBMIT_BUTTON = (By.CSS_SELECTOR, "[name='registration_submit']")
 
 
-class GoodPageLocators:
+class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, "#add_to_basket_form > button")
     GOOD_NAME = (By.CSS_SELECTOR, ".product_main > h1")
     GOOD_PRICE = (By.CSS_SELECTOR, ".product_main > .price_color")
