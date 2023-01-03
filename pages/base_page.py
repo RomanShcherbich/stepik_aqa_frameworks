@@ -76,3 +76,9 @@ class BasePage:
             *BasePageLocators.LOGIN_LINK,
             implicitly_timeout=5
         ), "Login link is not presented"
+
+    def should_be_authorized_user(self):
+        assert (
+            self.is_element_present(*BasePageLocators.USER_ICON),
+            "User icon is not presented, probably unauthorised user"
+        )

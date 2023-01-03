@@ -23,7 +23,7 @@ CODER_S_AT_WORK_URL = (
                                   pytest.param("bugged_link:?promo=offer6", marks=pytest.mark.skip),
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
-def test_add_to_basket(browser, link):
+def test_guest_can_add_product_to_basket(browser, link):
     shellcoder_s_handbook_page = ProductPage(browser, link)
     shellcoder_s_handbook_page.open()
     shellcoder_s_handbook_page.add_to_basket()
