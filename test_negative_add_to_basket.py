@@ -9,7 +9,7 @@ SHELLCODER_S_HANDBOOK_URL = (
 )
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     shellcoder_s_handbook_page = ProductPage(browser, SHELLCODER_S_HANDBOOK_URL)
     shellcoder_s_handbook_page.open()

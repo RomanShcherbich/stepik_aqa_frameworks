@@ -10,6 +10,11 @@ class MainPageLocators:
     pass
 
 
+class BasketPageLocators:
+    EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner > p")
+    ITEMS_LIST = (By.CSS_SELECTOR, "#content_inner .basket-items > .row")
+
+
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTRATION_FORM = (By.CSS_SELECTOR, "#register_form")
